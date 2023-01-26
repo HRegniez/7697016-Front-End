@@ -34,5 +34,44 @@ for (let i = 0; i < pieces.length; i++) {
     pieceElement.appendChild(descriptionElement);
     pieceElement.appendChild(stockElement);
 
- }
- 
+
+
+}
+
+const boutonTrier = document.querySelector(".btn-trier");
+
+boutonTrier.addEventListener("click", () => {
+    const piecesOrdonees = Array.from(pieces);
+    piecesOrdonees.sort(function(a , b) {
+        return a.prix - b.prix;
+    })
+    console.log(piecesOrdonees);
+})
+
+const boutonDeTrier = document.querySelector(".btn-detrier");
+
+boutonDeTrier.addEventListener("click", () => {
+    const piecesOrdonees = pieces.sort(function(b, a) {
+        return a.prix - b.prix;
+    });
+    console.log(piecesOrdonees);
+});
+
+const boutonFiltrer = document.querySelector(".btn-filtrer");
+
+boutonFiltrer.addEventListener("click", () => { 
+    const piecesFiltrees = pieces.filter(function(piece) {
+        return piece.prix <= 35;
+    });
+
+    console.log(piecesFiltrees);
+});
+
+const boutonDescritpion = document.querySelector(".btn-description");
+
+boutonDescritpion.addEventListener("click", () => {
+    const piecesDescription = pieces.filter(function(piece) {
+        return piece.description;
+    });
+    console.log(piecesDescription);
+});
